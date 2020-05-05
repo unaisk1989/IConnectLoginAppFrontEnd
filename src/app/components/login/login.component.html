@@ -1,0 +1,31 @@
+<div class="container">    
+    <div class="col-md-12 col-md-offset-3 loginBox">    
+        <h3>Log In</h3>    
+        <p *ngIf="message" class="alert-danger text-center error">{{message}}</p>    
+      <form [formGroup]="loginForm" (ngSubmit)="login()" method="POST">    
+          <div class="form-group clearfix" [ngClass]="{ 'has-error': myForm.username.errors }">    
+              <label for="username" class="col-md-6 col-sm-5 col-xs-12">Username</label>    
+              <div class="col-md-9 col-sm-7 col-xs-12">    
+                  <input type="text" class="form-control" formControlName="username" />    
+                  <div *ngIf="myForm.username.errors" class="help-block">    
+                        <div *ngIf="myForm.username.errors.required" style="color:red">Username is required</div>    
+                  </div>    
+              </div>    
+          </div>    
+          <div class="form-group clearfix" [ngClass]="{ 'has-error': myForm.password.errors }">    
+            <label for="password" class="col-md-6 col-sm-5 col-xs-12">Password</label>    
+            <div class="col-md-9 col-sm-7 col-xs-12">    
+                <input type="password" class="form-control" formControlName="password"/>    
+                <div *ngIf="myForm.password.errors" class="help-block">    
+                        <div *ngIf="myForm.password.errors.required" style="color:red">Password is required</div>    
+                </div>    
+            </div>    
+          </div> 
+          <div class="form-group clearfix">    
+            <div class="col-md-9 col-sm-7 col-xs-12">    
+                <button class="btn btn-success" type="submit">Login</button> 
+            </div>    
+          </div>    
+      </form>    
+    </div>    
+</div>  

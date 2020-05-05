@@ -1,0 +1,46 @@
+<div class="container">    
+    <div class="col-md-12 col-md-offset-5 loginBox">    
+        <div><h3>Sign Up</h3></div>
+        <p *ngIf="message" class="alert-danger text-center error">{{message}}</p>    
+      <form [formGroup]="signUpForm" (ngSubmit)="signup()" method="POST">    
+          <div class="form-group clearfix" [ngClass]="{ 'has-error': myForm.username.errors }">    
+              <label for="username" class="col-md-3 col-sm-5 col-xs-12">Username</label>    
+              <div class="col-md-9 col-sm-7 col-xs-12">    
+                  <input type="text" class="form-control" formControlName="username" placeholder="Username" />    
+                  <div *ngIf="myForm.username.errors" class="help-block">    
+                        <div *ngIf="myForm.username.errors.required" style="color:red">Username is required</div>    
+                  </div>    
+              </div>    
+          </div>    
+          <div class="form-group clearfix" [ngClass]="{ 'has-error': myForm.password.errors }">    
+            <label for="password" class="col-md-3 col-sm-5 col-xs-12">Password</label>    
+            <div class="col-md-9 col-sm-7 col-xs-12">    
+                <input type="password" class="form-control" formControlName="password"/>    
+                <div *ngIf="myForm.password.errors" class="help-block">    
+                        <div *ngIf="myForm.password.errors.required" style="color:red">Password is required</div>    
+                </div>    
+            </div>    
+          </div> 
+          <div class="form-group clearfix" [ngClass]="{ 'has-error': myForm.firstname.errors }">    
+            <label for="firstname" class="col-md-6 col-sm-6 col-xs-12">First Name</label>    
+            <div class="col-md-9 col-sm-7 col-xs-12">    
+                <input type="text" class="form-control" formControlName="firstname" placeholder="First Name"/>    
+                <div *ngIf="myForm.firstname.errors" class="help-block">    
+                        <div *ngIf="myForm.firstname.errors.required" style="color:red">First name is required</div>    
+                </div>    
+            </div>    
+          </div> 
+          <div class="form-group clearfix" [ngClass]="{ 'has-error': myForm.lastname.errors }">    
+            <label for="lastname" class="col-md-6 col-sm-6 col-xs-12">Last Name</label>    
+            <div class="col-md-9 col-sm-7 col-xs-12">    
+                <input type="text" class="form-control" formControlName="lastname" placeholder="Last Name"/>       
+            </div>    
+          </div> 
+          <div class="form-group clearfix">    
+            <div class="col-md-9 col-sm-7 col-xs-12">    
+                <button class="btn btn-success" type="submit">Sign Up</button>
+            </div>    
+          </div>    
+      </form>    
+    </div>    
+</div>  
